@@ -5,6 +5,7 @@ SceneManager::SceneManager() {
 	//initialisations des scènes
 	gameSc = Game();
 	menuSc = Menu();
+	menuSc.SetFont();
 }
 
 void SceneManager::UpdateScene(double dt) {
@@ -23,7 +24,7 @@ void SceneManager::SceneDraw(RenderWindow &window) {
 
 	if (!isGaming) {
 		window.clear();
-		menuSc.draw(window);
+		menuSc.MenuDraw(window);
 		window.display();
     }
 	else if(isGaming){

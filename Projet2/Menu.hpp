@@ -12,7 +12,8 @@ public:
 	Menu();
 	~Menu();
 
-	void draw(RenderWindow& window);
+	void SetFont();
+	void MenuDraw(RenderWindow& window);
 	void MoveUp();
 	void MoveDown();
 	int getPressedIndex() { return selectedIndex; }
