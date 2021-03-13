@@ -1,27 +1,25 @@
 #include "Menu.hpp"
 #include <iostream>
 
-Menu::Menu(float width, float height) {
+Menu::Menu() {
 
 	if (!font.loadFromFile("res/ARIAL.TTF")) {
 		cout << "ERROR NO FONT" << endl;
 	}
 
+	//float width = 1280, float height = 720;
+
 	menu[0].setFont(font);
 	menu[0].setString("Jouer");
-	menu[0].setPosition(Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	menu[0].setPosition(Vector2f(1280 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 	menu[0].setFillColor(Color::Red);
 
 	menu[1].setFont(font);
 	menu[1].setString("Quitter");
-	menu[1].setPosition(Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+	menu[1].setPosition(Vector2f(1280 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 	menu[1].setFillColor(Color::Yellow);
 
 	selectedIndex = 0;
-}
-
-Menu::Menu() {
-
 }
 
 Menu::~Menu() {

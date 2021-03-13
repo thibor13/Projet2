@@ -1,5 +1,12 @@
 #include "SceneManager.hpp"
 
+SceneManager::SceneManager() {
+
+	//initialisations des scènes
+	gameSc = Game();
+	menuSc = Menu();
+}
+
 void SceneManager::UpdateScene(double dt) {
 
 	if (!isGaming) {
@@ -39,6 +46,3 @@ void SceneManager::ProcessInput(Event &event, RenderWindow &window) {
 	
 }
 
-SceneManager::SceneManager() {
-
-}

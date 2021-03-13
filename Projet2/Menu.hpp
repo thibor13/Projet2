@@ -8,9 +8,8 @@ using namespace sf;
 
 class Menu {
 public:
-
+	
 	Menu();
-	Menu(float width, float height);
 	~Menu();
 
 	void draw(RenderWindow& window);
