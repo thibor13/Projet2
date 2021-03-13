@@ -49,3 +49,43 @@ void Menu::MoveDown() {
 		menu[selectedIndex].setFillColor(Color::Red);
 	}
 }
+
+void Menu::processEvent(sf::Event &event, RenderWindow &win) {
+
+	//scene Manage
+	switch (event.type) {
+
+	case Event::KeyReleased:
+		switch (event.key.code) {
+
+		case Keyboard::Up:
+			MoveUp();
+			break;
+		case Keyboard::Down:
+			MoveDown();
+			break;
+		case Keyboard::Return:
+			switch (getPressedIndex()) {
+
+			case 0:
+				//load game scene 
+
+				break;
+			case 1:
+				//close game
+				win.close();
+				break;
+			}
+		}
+		break;
+	case Event::Closed:
+		win.close();
+		break;
+	}
+
+}
+
+void Menu::MenuUpdate() {
+
+}
+

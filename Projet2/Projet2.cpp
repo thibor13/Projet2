@@ -1,6 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Menu.hpp"
+#include "Game.hpp"
+#include "SceneManager.hpp"
+#include "Lib.hpp"
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Audio.hpp>
 
@@ -9,50 +12,32 @@ using namespace std;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 720, 32), "SFML works!");
+	RenderWindow window(sf::VideoMode(1280, 720, 32), "SFML works!");
 	window.setVerticalSyncEnabled(true);
-	Menu menu(window.getSize().x, window.getSize().y);
+	//Menu menu(window.getSize().x, window.getSize().y);
+	SceneManager* sceneManager = nullptr;
 
-	sf::Event event;
+	//Game game(window.getSize().x, window.getSize().y);
+
+	double frameStart = 0.0;
+	double frameEnd = 0.0;
+	window.setFramerateLimit(60);
+	
+	Event event;
+
 	while (window.isOpen()) {
 
+		double dt = frameEnd - frameStart;
+		frameStart = Lib::getTimeStamp();
+
 		while (window.pollEvent(event)) { //sort un evenement de la liste pour le traiter
-
-		//scene Manage
-			switch (event.type) {
-
-			case Event::KeyReleased:
-				switch (event.key.code) {
-
-				case Keyboard::Up:
-					menu.MoveUp();
-					break;
-				case Keyboard::Down:
-					menu.MoveDown();
-					break;
-				case Keyboard::Return:
-					switch (menu.getPressedIndex()) {
-
-					case 0:
-						//load game scene 
-
-						break;
-					case 1:
-						//close game
-						window.close();
-						break;
-					}
-				}
-				break;
-			case Event::Closed:
-				window.close();
-				break;
-			}
-
+			sceneManager->ProcessInput(event, window);
+			sceneManager->UpdateScene(dt);
+			//menu.processEvent(event, window);
 		}
-
-		window.clear();
-		menu.draw(window);
+		sceneManager->SceneDraw(window);
+		//window.clear();
+		//menu.draw(window);
 		window.display();
 	}
 	

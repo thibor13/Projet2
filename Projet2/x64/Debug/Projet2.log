@@ -1,2 +1,11 @@
-﻿  Menu.cpp
-  Projet2.vcxproj -> D:\Projetrattrapage\Projet2\x64\Debug\Projet2.exe
+﻿  Game.cpp
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(17,13): error C3646: 'gameSc' : spécificateur de substitution inconnu
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(17,13): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+  Projet2.cpp
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(16,13): error C3646: 'menuSc' : spécificateur de substitution inconnu
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(16,13): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+  Menu.cpp
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(16,13): error C3646: 'menuSc' : spécificateur de substitution inconnu
+D:\Projetrattrapage\Projet2\Projet2\SceneManager.hpp(16,13): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+  SceneManager.cpp
+  Génération de code en cours...

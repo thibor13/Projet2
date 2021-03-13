@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "SceneManager.hpp"
 
 using namespace std;
 using namespace sf;
@@ -16,6 +17,10 @@ public:
 	void MoveUp();
 	void MoveDown();
 	int getPressedIndex() { return selectedIndex; }
+	void processEvent(sf::Event &event, RenderWindow &win);
+	void MenuUpdate();
+
+	//SceneManager* sceneMana = nullptr;
 
 private:
 	int selectedIndex;

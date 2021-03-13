@@ -158,11 +158,18 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ennemy.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Projet2.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ennemy.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Lib.hpp" />
     <ClInclude Include="Menu.hpp" />
+    <ClInclude Include="SceneManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
