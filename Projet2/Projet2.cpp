@@ -15,7 +15,7 @@ int main()
 	RenderWindow window(sf::VideoMode(1280, 720, 32), "SFML works!");
 	window.setVerticalSyncEnabled(true);
 	//Menu menu(window.getSize().x, window.getSize().y);
-	SceneManager* sceneManager = nullptr;
+	SceneManager sceneManager;
 
 	//Game game(window.getSize().x, window.getSize().y);
 
@@ -31,14 +31,15 @@ int main()
 		frameStart = Lib::getTimeStamp();
 
 		while (window.pollEvent(event)) { //sort un evenement de la liste pour le traiter
-			sceneManager->ProcessInput(event, window);
-			sceneManager->UpdateScene(dt);
+			sceneManager.ProcessInput(event, window);
+			sceneManager.UpdateScene(dt);
 			//menu.processEvent(event, window);
 		}
-		sceneManager->SceneDraw(window);
+
+		sceneManager.SceneDraw(window);
 		//window.clear();
 		//menu.draw(window);
-		window.display();
+		//window.display();
 	}
 	
 }

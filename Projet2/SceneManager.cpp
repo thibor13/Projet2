@@ -12,23 +12,33 @@ void SceneManager::UpdateScene(double dt) {
 	}
 }
 
-void SceneManager::SceneDraw(RenderWindow &wind) {
+void SceneManager::SceneDraw(RenderWindow &window) {
 
 	if (!isGaming) {
-		wind.clear();
-		menuSc.draw(wind);
+		window.clear();
+		menuSc.draw(window);
+		window.display();
     }
 	else if(isGaming){
-		wind.clear();
-		gameSc.draw(wind);
+		window.clear();
+		gameSc.draw(window);
+		window.display();
 	}
 	
 }
 
 void SceneManager::ProcessInput(Event &event, RenderWindow &window) {
 
-	if(!isGaming)
-	menuSc.processEvent(event, window);
-	else if(isGaming)
-	gameSc.processEvent(event, window);
+	if (!isGaming) {
+		menuSc.processEvent(event, window);
+	}
+	
+	else if (isGaming) {
+		gameSc.processEvent(event, window);
+	}
+	
+}
+
+SceneManager::SceneManager() {
+
 }

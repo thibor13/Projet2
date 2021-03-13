@@ -20,6 +20,10 @@ Menu::Menu(float width, float height) {
 	selectedIndex = 0;
 }
 
+Menu::Menu() {
+
+}
+
 Menu::~Menu() {
 
 }

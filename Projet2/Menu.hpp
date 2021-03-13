@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "SceneManager.hpp"
 
 using namespace std;
 using namespace sf;
@@ -10,6 +9,7 @@ using namespace sf;
 class Menu {
 public:
 
+	Menu();
 	Menu(float width, float height);
 	~Menu();
 

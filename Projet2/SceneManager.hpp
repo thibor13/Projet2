@@ -9,12 +9,16 @@ using namespace std;
 class SceneManager {
 public:
 
-	void UpdateScene(double dt);
-	void SceneDraw(RenderWindow &window);
-	void ProcessInput(Event& event, RenderWindow& window);
+	bool isGaming = false;
 
 	Menu menuSc;
 	Game gameSc;
 
-	bool isGaming = false;
+	SceneManager();
+
+	void UpdateScene(double dt);
+	void SceneDraw(RenderWindow &window);
+	void ProcessInput(Event& event, RenderWindow& window);
+
+	
 };

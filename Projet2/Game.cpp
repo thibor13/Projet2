@@ -18,3 +18,12 @@ void Game::UpdateGame(double dt) {
 Game::Game(float width, float height) {
 
 }
+
+Game::Game() {
+
+}
+
+Game::~Game() {
+
+
+}

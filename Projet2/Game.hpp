@@ -3,7 +3,6 @@
 #include "SFML/Window.hpp"
 #include "SFML/System.hpp"
 #include "SFML/Audio.hpp"
-#include "SceneManager.hpp"
 
 using namespace std;
 using namespace sf;
@@ -12,6 +11,7 @@ class Game {
 public:
 
 	Game(float width, float height);
+	Game();
 	~Game();
 
 	Game(sf::RenderWindow* win);
