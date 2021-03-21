@@ -2,16 +2,24 @@
 
 void Game::processEvent(sf::Event& event, RenderWindow& window) {
 	
+	switch (event.type) {
+	case Event::KeyReleased:
+		switch (event.key.code) {
+		case Keyboard::Q:
+			player.isMovingLeft = false;
+			break;
+		case Keyboard::D:
+			player.isMovingRight = false;
+			break;
+		}
+	break;
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
 		player.isMovingLeft = true;
-		
 	}
-		
-
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		player.isMovingRight = true;
-		
 	}
 		
 }
@@ -29,7 +37,7 @@ void Game::UpdateGame(double dt) {
 
 void Game::SetPlayerSprite() {
 
-	player.spaceShip.setScale(Vector2f(0.18f, 0.18f));
+	player.spaceShip.setScale(Vector2f(0.20f, 0.20f));
 
 	if (!player.ship.loadFromFile("res/SPACESHIP1.PNG"))
 		printf("ERR : LOAD FAILED\n");

@@ -26,13 +26,15 @@ int main()
 
 		double dt = frameEnd - frameStart;
 		frameStart = Lib::getTimeStamp();
+		
 
 		while (window.pollEvent(event)) { //sort un evenement de la liste pour le traiter
 			sceneManager.ProcessInput(event, window);
-			sceneManager.UpdateScene(dt);
 		}
-
+		sceneManager.UpdateScene(dt);
 		sceneManager.SceneDraw(window);
+
+		frameEnd = Lib::getTimeStamp();
 	}
 	
 }

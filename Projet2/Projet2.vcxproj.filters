@@ -24,13 +24,13 @@
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Ennemy.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="EnnemyManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,6 +51,9 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="PlayerController.hpp">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="EnnemyManager.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
