@@ -4,17 +4,20 @@ SceneManager::SceneManager() {
 
 	//initialisations des scènes
 	gameSc = Game();
+	gameSc.SetBg();
+	
 	menuSc = Menu();
 	menuSc.SetFont();
+	menuSc.SetBgMenu();
 }
 
 void SceneManager::UpdateScene(double dt) {
 
-	if (!isGaming) {
+	if (menuSc.isGame == false) {
 		
 		menuSc.MenuUpdate();
 	}
-	else if(isGaming){
+	else if(menuSc.isGame == true){
 		
 		gameSc.UpdateGame(dt);
 	}
@@ -22,14 +25,14 @@ void SceneManager::UpdateScene(double dt) {
 
 void SceneManager::SceneDraw(RenderWindow &window) {
 
-	if (!isGaming) {
+	if (menuSc.isGame == false) {
 		window.clear();
 		menuSc.MenuDraw(window);
 		window.display();
     }
-	else if(isGaming){
+	else if(menuSc.isGame == true){
 		window.clear();
-		gameSc.draw(window);
+		gameSc.GameDraw(window);
 		window.display();
 	}
 	
@@ -37,11 +40,11 @@ void SceneManager::SceneDraw(RenderWindow &window) {
 
 void SceneManager::ProcessInput(Event &event, RenderWindow &window) {
 
-	if (!isGaming) {
+	if (menuSc.isGame == false) {
 		menuSc.processEvent(event, window);
 	}
 	
-	else if (isGaming) {
+	else if (menuSc.isGame == true) {
 		gameSc.processEvent(event, window);
 	}
 	

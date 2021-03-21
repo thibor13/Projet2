@@ -9,7 +9,7 @@ using namespace std;
 class SceneManager {
 public:
 
-	bool isGaming = false;
+	//bool isGaming = false;
 
 	Menu menuSc;
 	Game gameSc;

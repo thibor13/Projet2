@@ -3,7 +3,7 @@
 
 Menu::Menu() {
 
-	if (!font.loadFromFile("res/ARIAL.TTF")) {
+	if (!font.loadFromFile("res/ARIAL.TTF")) { 
 		cout << "ERROR NO FONT" << endl;
 	}
 
@@ -20,7 +20,7 @@ Menu::Menu() {
 }
 
 Menu::~Menu() {
-
+	
 }
 
 void Menu::SetFont() {
@@ -30,8 +30,19 @@ void Menu::SetFont() {
 	}
 }
 
+void Menu::SetBgMenu() {
+
+	backGroundMenu = RectangleShape(Vector2f(1280, 720));
+
+	if (!bgMenu.loadFromFile("res/BGMENU.JPG"))
+		printf("ERR : LOAD FAILED\n");
+
+	backGroundMenu.setTexture(&bgMenu);
+}
+
 void Menu::MenuDraw(RenderWindow& window) {
 
+	window.draw(backGroundMenu);
 	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
 		window.draw(menu[i]);
 	}
@@ -75,7 +86,7 @@ void Menu::processEvent(sf::Event &event, RenderWindow &win) {
 
 			case 0:
 				//load game scene 
-
+				isGame = true;
 				break;
 			case 1:
 				//close game

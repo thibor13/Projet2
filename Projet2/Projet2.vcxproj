@@ -160,6 +160,7 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
   <ItemGroup>
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="Projet2.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -169,6 +170,7 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Lib.hpp" />
     <ClInclude Include="Menu.hpp" />
+    <ClInclude Include="PlayerController.hpp" />
     <ClInclude Include="SceneManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

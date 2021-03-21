@@ -12,6 +12,10 @@ public:
 	Menu();
 	~Menu();
 
+	RectangleShape backGroundMenu;
+	Texture bgMenu;
+
+	void SetBgMenu();
 	void SetFont();
 	void MenuDraw(RenderWindow& window);
 	void MoveUp();
@@ -20,7 +24,7 @@ public:
 	void processEvent(sf::Event &event, RenderWindow &win);
 	void MenuUpdate();
 
-	//SceneManager* sceneMana = nullptr;
+	bool isGame = false;
 
 private:
 	int selectedIndex;

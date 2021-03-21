@@ -14,16 +14,13 @@ int main()
 {
 	RenderWindow window(sf::VideoMode(1280, 720, 32), "SFML works!");
 	window.setVerticalSyncEnabled(true);
-	//Menu menu(window.getSize().x, window.getSize().y);
+	
 	SceneManager sceneManager;
-
-	//Game game(window.getSize().x, window.getSize().y);
+	Event event;
 
 	double frameStart = 0.0;
 	double frameEnd = 0.0;
 	window.setFramerateLimit(60);
-	
-	Event event;
 
 	while (window.isOpen()) {
 
@@ -33,13 +30,9 @@ int main()
 		while (window.pollEvent(event)) { //sort un evenement de la liste pour le traiter
 			sceneManager.ProcessInput(event, window);
 			sceneManager.UpdateScene(dt);
-			//menu.processEvent(event, window);
 		}
 
 		sceneManager.SceneDraw(window);
-		//window.clear();
-		//menu.draw(window);
-		//window.display();
 	}
 	
 }
