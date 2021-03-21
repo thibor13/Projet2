@@ -5,6 +5,7 @@ SceneManager::SceneManager() {
 	//initialisations des scènes
 	gameSc = Game();
 	gameSc.SetBg();
+	gameSc.SetPlayerSprite();
 	
 	menuSc = Menu();
 	menuSc.SetFont();

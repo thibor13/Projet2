@@ -18,6 +18,7 @@ public:
 	RectangleShape  backGround;
 	Texture bg;
 
+	void SetPlayerSprite();
 	void SetBg();
 	void processEvent(sf::Event &event, RenderWindow& window);
 	void GameDraw(RenderWindow& window);

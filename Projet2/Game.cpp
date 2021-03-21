@@ -2,22 +2,40 @@
 
 void Game::processEvent(sf::Event& event, RenderWindow& window) {
 	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-		player.spaceShip.move(-100.f, 0.f);
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+		player.isMovingLeft = true;
+		
+	}
+		
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		player.spaceShip.move(100.f, 0.f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+		player.isMovingRight = true;
+		
+	}
+		
 }
 
 void Game::GameDraw(RenderWindow& window) {
 	
 	window.draw(backGround);
-	player.PlayerDraw(window);
+	window.draw(player.spaceShip);
 }
 
 void Game::UpdateGame(double dt) {
 
+	player.PlayerUpdate(dt);
+}
 
+void Game::SetPlayerSprite() {
+
+	player.spaceShip.setScale(Vector2f(0.18f, 0.18f));
+
+	if (!player.ship.loadFromFile("res/SPACESHIP1.PNG"))
+		printf("ERR : LOAD FAILED\n");
+
+	player.spaceShip.setPosition(640, 630);
+	player.spaceShip.setTexture(player.ship);
 }
 
 void Game::SetBg() {

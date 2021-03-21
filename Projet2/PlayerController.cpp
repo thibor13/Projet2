@@ -1,15 +1,21 @@
 #include "PlayerController.hpp"
 
-void PlayerController::PlayerDraw(RenderWindow &window) {
+PlayerController::PlayerController() {
 
-	spaceShip.setScale(Vector2f(0.18f, 0.18f));
 
-	if(!ship.loadFromFile("res/SPACESHIP1.PNG"))
-		printf("ERR : LOAD FAILED\n");
-	
-	spaceShip.setPosition(640, 630);
-	spaceShip.setTexture(ship);
-	window.draw(spaceShip);
+}
+
+void PlayerController::PlayerUpdate(double dt) {
+
+	if (isMovingLeft == true) {
+		speed = -0.02f;
+		spaceShip.move(speed * dt, 0);
+	}
+
+	if (isMovingRight == true) {
+		speed = 0.02f;
+		spaceShip.move(speed * dt, 0);
+	}
 }
 
 

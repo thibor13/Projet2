@@ -1,4 +1,4 @@
-﻿  Projet2.cpp
-  SceneManager.cpp
-  Génération de code en cours...
+﻿  PlayerController.cpp
+D:\Projetrattrapage\Projet2\Projet2\PlayerController.cpp(12,24): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\PlayerController.cpp(17,24): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
   Projet2.vcxproj -> D:\Projetrattrapage\Projet2\x64\Debug\Projet2.exe
