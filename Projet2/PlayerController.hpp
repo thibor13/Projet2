@@ -16,6 +16,7 @@ public:
 
 	Vector2f movePlayer;
 	Vector2f posPlayer;
+	float getScalingPos;
 
 	bool isMovingLeft = false;
 	bool isMovingRight = false;

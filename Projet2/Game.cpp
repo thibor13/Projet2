@@ -42,8 +42,10 @@ void Game::SetPlayerSprite() {
 	if (!player.ship.loadFromFile("res/SPACESHIP1.PNG"))
 		printf("ERR : LOAD FAILED\n");
 
+	player.spaceShip.setOrigin(0.10f, player.spaceShip.getScale().y);
 	player.spaceShip.setPosition(640, 630);
 	player.spaceShip.setTexture(player.ship);
+	player.getScalingPos = player.ship.getSize().x * player.spaceShip.getScale().x;
 }
 
 void Game::SetBg() {
