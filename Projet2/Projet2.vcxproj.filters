@@ -33,6 +33,12 @@
     <ClCompile Include="EnnemyManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Ennemy.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.hpp">
@@ -54,6 +60,9 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="EnnemyManager.hpp">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

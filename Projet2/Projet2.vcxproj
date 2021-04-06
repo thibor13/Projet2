@@ -158,6 +158,8 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletManager.cpp" />
+    <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="EnnemyManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="PlayerController.cpp" />
@@ -166,6 +168,7 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletManager.hpp" />
     <ClInclude Include="Ennemy.hpp" />
     <ClInclude Include="EnnemyManager.hpp" />
     <ClInclude Include="Game.hpp" />
