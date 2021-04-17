@@ -7,6 +7,8 @@ SceneManager::SceneManager() {
 	gameSc.SetBg();
 	gameSc.SetPlayerSprite();
 	gameSc.SetBulletPlayer();
+	gameSc.SetEnnemies();
+	gameSc.SetBulletEnemy();
 
 	menuSc = Menu();
 	menuSc.SetFont();

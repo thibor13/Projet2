@@ -5,6 +5,8 @@
 #include "SFML/Audio.hpp"
 #include "PlayerController.hpp"
 #include "BulletManager.hpp"
+#include "EnnemyManager.hpp"
+#include "Particle.hpp"
 
 using namespace std;
 using namespace sf;
@@ -14,22 +16,25 @@ public:
 
 	PlayerController player;
 	BulletManager bulletManager;
+	EnnemyManager ennemyManager;
 
+	vector<Particles> boom;
 	Game();
 
 	RectangleShape  backGround;
 	Texture bg;
 	RenderWindow* win = nullptr;
 
+
 	void SetPlayerSprite();
 	void SetBulletPlayer();
-	void SetBulletEnnmy();
+	void SetBulletEnemy();
+	void SetEnnemies();
 	void SetBg();
 	void processEvent(sf::Event &event, RenderWindow& window);
 	void GameDraw(RenderWindow& window);
 	void UpdateGame(double dt);
-
-	//SceneManager* sceneMana = nullptr;
+	void CreatesExplode(Vector2f enePos, Color little);
 };
 
 

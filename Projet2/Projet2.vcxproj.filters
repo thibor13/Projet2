@@ -33,9 +33,6 @@
     <ClCompile Include="EnnemyManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Ennemy.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -50,9 +47,6 @@
     <ClInclude Include="Lib.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
-    <ClInclude Include="Ennemy.hpp">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
@@ -63,6 +57,9 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="BulletManager.hpp">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

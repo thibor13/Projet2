@@ -23,15 +23,17 @@ public:
 	Game* game = nullptr;
 
 	vector<Bullet> bullets;
+	vector<Bullet> enemyBullets;
 	float bulletSpeed = 5.f;
 
-	void BulletUpdate();
 	void BulletPlayerSpawning(float& trajectoire);
-	void BulletEnnemySpawning();
+	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob);
 	void BulletRender(RenderWindow& window);
 	void BulletUpdate(float dt);
 	
 	Texture bulletTexture;
-	Sprite bulletEnnemy;
-	Texture bulletEnnemyTexture;
+	Texture bulletEnnemyTexture1;
+	Texture bulletEnnemyTexture2;
+	Texture bulletEnnemyTexture3;
+	Texture bulletBoss;
 };
