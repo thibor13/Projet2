@@ -10,6 +10,12 @@ EnnemyManager::EnnemyManager(Game* _gaming) {
 	gaming = _gaming;
 }
 
+void EnnemyManager::chooseTimer(int x, int y) {
+
+	float random = (float)(rand() % 100) / 100.f;
+	timer = x + random * (y - x);
+}
+
 void EnnemyManager::UpdateEnnemy(float dt) {
 
 	if (hasSpawned == false) {
@@ -33,12 +39,14 @@ void EnnemyManager::UpdateEnnemy(float dt) {
 		CollisionMob();
 	}
 
-	for (int i = ennemies.size() - 1; i >= 0; i--) {
+	//enemy fire
+	float time = fireTime.getElapsedTime().asSeconds();
+	if (time >= timer) {
 
-		float trajectoire = -20.f;
-		Vector2f enemiesPos = ennemies[i].ennemy.getPosition();
-
-		//bulletManager.BulletEnnemySpawning(trajectoire, dt, enemiesPos);
+		float trajectoire = 20.f;
+		Vector2f enemiesPos = ennemies[rand() % (ennemies.size() - 1)].ennemy.getPosition();
+		bulletManager.BulletEnnemySpawning(trajectoire, dt, enemiesPos);
+		chooseTimer(1.f,2.f);
 	}
 }
 

@@ -26,18 +26,23 @@ public:
 
 	vector<Ennemy>ennemies;
 	bool hasSpawned = false;
+	bool isFire = false;
 
 	void UpdateEnnemy(float dt);
 	void SpawnEnnemy();
 	void DrawEnnemy(RenderWindow& window);
 	void move(float dirX, float dirY);
 	void CollisionMob();
+	void chooseTimer(int x, int y);
 	
 	bool hitWindow = false;
 	int rows = 0;
 	int numberOfEnnemies = 0;
+	float timer = 0.f;
+	//float fireTime = 2.f;
 
 	Clock timeToMove;
+	Clock fireTime;
 
 	Texture ennemyTex1;
 	Texture ennemyTex2;

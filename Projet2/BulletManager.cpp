@@ -1,5 +1,6 @@
 #include "BulletManager.hpp"
 #include "Game.hpp"
+#include <iostream>
 
 using namespace sf;
 using namespace std;
@@ -15,8 +16,9 @@ void BulletManager::BulletRender(RenderWindow &window) {
 		window.draw(rendBullets.bulletP);
 	}
 		
-	/*for (Bullet& rendEnemyBullets : enemyBullets)
-		window.draw(rendEnemyBullets.bulletP);*/
+	for (Bullet& rendEnemyBullets : enemyBullets) {
+		window.draw(rendEnemyBullets.bulletP);
+	}
 }
 
 void BulletManager::BulletUpdate(float dt) {
@@ -39,9 +41,9 @@ void BulletManager::BulletUpdate(float dt) {
 	}
 
 	//enemy
-/*	for (int i = enemyBullets.size() - 1; i >= 0; i--) {
+	for (int i = enemyBullets.size() - 1; i >= 0; i--) {
 
-		//enemyBullets[i].bulletP.setPosition(enemyBullets[i].bulletP.getPosition().x, enemyBullets[i].bulletP.getPosition().y + enemyBullets[i].traj * dt * bulletSpeed);
+		
 
 		Vector2f posEnemyBullets = enemyBullets[i].bulletP.getPosition();
 
@@ -52,7 +54,7 @@ void BulletManager::BulletUpdate(float dt) {
 
 		if (enemyBullets[i].isDestroyed == true)
 			enemyBullets.erase(enemyBullets.begin() + i);
-	}*/
+	}
 }
 
 void BulletManager::BulletPlayerSpawning(float& trajectoire) {
@@ -60,25 +62,23 @@ void BulletManager::BulletPlayerSpawning(float& trajectoire) {
 	Bullet bullet;
 
 	bullet.bulletP.setScale(0.4f, 0.4f);
+	bullet.bulletP.setOrigin(0.2f, 0.2f);
 	bullet.bulletP.setTexture(bulletTexture);
 	bullet.traj = trajectoire;
-	bullet.bulletP.setOrigin(0.2f, 0.2f);
 	bullet.bulletP.setPosition(game->player.spaceShip.getPosition().x, game->player.spaceShip.getPosition().y); 
 	bullets.push_back(bullet);
 }
 
 void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob) {
 
-	/*Bullet enemyBullet;
-
-	float fireTime = 0.f;
-	fireTime -= dt;
+	Bullet enemyBullet;
 
 	enemyBullet.bulletP.setScale(0.4f, 0.4f);
+	enemyBullet.bulletP.setOrigin(0.2f, 0.2f);
 	enemyBullet.bulletP.setTexture(bulletEnnemyTexture1);
 	enemyBullet.traj = trajectoire;
-	enemyBullet.bulletP.setOrigin(0.2f, 0.2f);
-	enemyBullet.bulletP.setPosition(posMob);
-	enemyBullets.push_back(enemyBullet);*/
+	enemyBullet.bulletP.setPosition(posMob.x,posMob.y + enemyBullet.traj * dt * bulletSpeed);
+	enemyBullets.push_back(enemyBullet);
+	cout << enemyBullets.size() - 1 << endl;
 }
 	

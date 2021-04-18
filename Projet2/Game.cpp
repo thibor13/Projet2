@@ -64,8 +64,6 @@ void Game::SetPlayerSprite() {
 
 void Game::SetBulletEnemy() {
 
-	bulletManager = BulletManager(this);
-
 	if (!bulletManager.bulletEnnemyTexture1.loadFromFile("res/MOBBULLET.PNG"))
 		printf("erreur: bullet1 no load");
 }
@@ -102,6 +100,7 @@ void Game::SetBg() {
 	backGround.setTexture(&bg);
 }
 
+//enemy die
 void Game::CreatesExplode(Vector2f enePos, Color little)
 {
 	for (int i = 0; i < 100; i++)
