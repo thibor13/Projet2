@@ -8,6 +8,7 @@ using namespace std;
 BulletManager::BulletManager(Game *_game) {
 
 	game = _game;
+	
 }
 
 void BulletManager::BulletRender(RenderWindow &window) {

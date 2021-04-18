@@ -78,7 +78,7 @@ void Game::SetBulletPlayer() {
 
 void Game::SetEnnemies() {
 
-	ennemyManager = EnnemyManager(this);
+	ennemyManager = EnnemyManager(this, EnnemyManager::bulletMana);
 
 	if(!ennemyManager.ennemyTex1.loadFromFile("res/SHIP1.PNG"))
 		printf("erreur: ennemy1 texture fail load\n");
@@ -101,19 +101,19 @@ void Game::SetBg() {
 }
 
 //enemy die
-void Game::CreatesExplode(Vector2f enePos, Color little)
+void Game::CreatesExplode(Vector2f pos, Color black)
 {
 	for (int i = 0; i < 100; i++)
 	{
 		Particles p;
-		p.x = enePos.x;
-		p.y = enePos.y;
+		p.x = pos.x;
+		p.y = pos.y;
 
 		float x = ((float)rand() / (float)(RAND_MAX)) * (1 - rand() % 3);
 		float y = ((float)rand() / (float)(RAND_MAX)) * (1 - rand() % 3);
 		p.dx = x * 1000.0;
 		p.dy = y * 1000.0;
-		p.el.setFillColor(little);
+		p.el.setFillColor(black);
 		boom.push_back(p);
 	}
 }

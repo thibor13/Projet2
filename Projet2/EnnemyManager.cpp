@@ -5,9 +5,10 @@
 using namespace std;
 using namespace sf;
 
-EnnemyManager::EnnemyManager(Game* _gaming) {
+EnnemyManager::EnnemyManager(Game* _gaming, BulletManager* _bulletMana) {
 
 	gaming = _gaming;
+	bulletMana = _bulletMana;
 }
 
 void EnnemyManager::chooseTimer(int x, int y) {
@@ -45,8 +46,9 @@ void EnnemyManager::UpdateEnnemy(float dt) {
 
 		float trajectoire = 20.f;
 		Vector2f enemiesPos = ennemies[rand() % (ennemies.size() - 1)].ennemy.getPosition();
-		bulletManager.BulletEnnemySpawning(trajectoire, dt, enemiesPos);
+		bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos);
 		chooseTimer(1.f,2.f);
+		fireTime.restart();
 	}
 }
 

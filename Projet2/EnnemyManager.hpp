@@ -19,10 +19,10 @@ public:
 	};
 
 	EnnemyManager() {};
-	EnnemyManager(Game* _gaming);
+	EnnemyManager(Game* _gaming, BulletManager *_bulletMana);
 
 	Game* gaming = nullptr;
-	BulletManager bulletManager;
+	BulletManager *bulletMana = nullptr;
 
 	vector<Ennemy>ennemies;
 	bool hasSpawned = false;
@@ -39,7 +39,6 @@ public:
 	int rows = 0;
 	int numberOfEnnemies = 0;
 	float timer = 0.f;
-	//float fireTime = 2.f;
 
 	Clock timeToMove;
 	Clock fireTime;

@@ -1,5 +1,33 @@
 ﻿  BulletManager.cpp
 D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(27,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(44,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-  Projet2.vcxproj -> D:\Projetrattrapage\Projet2\x64\Debug\Projet2.exe
+D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(28,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(45,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  EnnemyManager.cpp
+D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(51,19): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(51,15): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(69,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(69,48): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(80,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(110,3): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  Game.cpp
+D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\Game.cpp(48,29): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\Game.cpp(49,29): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\Game.cpp(81,53): error C2597: référence non conforme à un membre non static 'EnnemyManager::bulletMana'
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25): message : voir la déclaration de 'EnnemyManager::bulletMana'
+D:\Projetrattrapage\Projet2\Projet2\Game.cpp(114,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\Game.cpp(115,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  Projet2.cpp
+D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  SceneManager.cpp
+D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  Génération de code en cours...

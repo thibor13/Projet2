@@ -24,7 +24,7 @@ public:
     {
         el = RectangleShape(Vector2f(8, 8));
         el.setOrigin(4, 4);
-        el.setFillColor(Color::Red);
+        el.setFillColor(Color::Black);
         el.setPosition(x, y);
         life = 20;
     }
