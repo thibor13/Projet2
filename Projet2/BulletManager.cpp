@@ -5,10 +5,10 @@
 using namespace sf;
 using namespace std;
 
-BulletManager::BulletManager(Game *_game) {
+BulletManager::BulletManager(Game *_game, PlayerController *_player) {
 
 	game = _game;
-	
+	player = _player;
 }
 
 void BulletManager::BulletRender(RenderWindow &window) {
@@ -44,13 +44,19 @@ void BulletManager::BulletUpdate(float dt) {
 	//enemy
 	for (int i = enemyBullets.size() - 1; i >= 0; i--) {
 
-		
+		enemyBullets[i].bulletP.setPosition(enemyBullets[i].bulletP.getPosition().x, enemyBullets[i].bulletP.getPosition().y + enemyBullets[i].traj * dt * bulletSpeed);
 
 		Vector2f posEnemyBullets = enemyBullets[i].bulletP.getPosition();
 
 		if (enemyBullets[i].isDestroyed == false) {
 			if (posEnemyBullets.x > 1280 || posEnemyBullets.y > 720 || posEnemyBullets.x < 0 || posEnemyBullets.y < 0)
 				enemyBullets[i].isDestroyed = true;
+			
+			if (player->spaceShip.getGlobalBounds().contains(posEnemyBullets)) {
+					
+				shake = 15;
+				enemyBullets[i].isDestroyed = true;
+			}
 		}
 
 		if (enemyBullets[i].isDestroyed == true)
@@ -80,6 +86,5 @@ void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f 
 	enemyBullet.traj = trajectoire;
 	enemyBullet.bulletP.setPosition(posMob.x,posMob.y + enemyBullet.traj * dt * bulletSpeed);
 	enemyBullets.push_back(enemyBullet);
-	cout << enemyBullets.size() - 1 << endl;
 }
 	

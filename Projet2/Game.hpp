@@ -7,6 +7,7 @@
 #include "BulletManager.hpp"
 #include "EnnemyManager.hpp"
 #include "Particle.hpp"
+#include "Dice.hpp"
 
 using namespace std;
 using namespace sf;
@@ -17,6 +18,7 @@ public:
 	PlayerController player;
 	BulletManager bulletManager;
 	EnnemyManager ennemyManager;
+	Dice dice;
 
 	vector<Particles> boom;
 	Game();
@@ -25,7 +27,6 @@ public:
 	Texture bg;
 	RenderWindow* win = nullptr;
 
-
 	void SetPlayerSprite();
 	void SetBulletPlayer();
 	void SetBulletEnemy();
@@ -33,8 +34,9 @@ public:
 	void SetBg();
 	void processEvent(sf::Event &event, RenderWindow& window);
 	void GameDraw(RenderWindow& window);
-	void UpdateGame(double dt);
+	void UpdateGame(double dt, RenderWindow& win);
 	void CreatesExplode(Vector2f enePos, Color little);
+	void Shake(RenderWindow& win);
 };
 
 

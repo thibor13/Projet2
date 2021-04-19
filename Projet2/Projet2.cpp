@@ -6,6 +6,7 @@
 #include "Lib.hpp"
 #include <SFML/Window/Keyboard.hpp>
 #include <SFML/Audio.hpp>
+#include "Dice.hpp"
 
 using namespace sf;
 using namespace std;
@@ -31,10 +32,9 @@ int main()
 		while (window.pollEvent(event)) { //sort un evenement de la liste pour le traiter
 			sceneManager.ProcessInput(event, window);
 		}
-		sceneManager.UpdateScene(dt);
+		sceneManager.UpdateScene(dt, window);
 		sceneManager.SceneDraw(window);
 
 		frameEnd = Lib::getTimeStamp();
 	}
-	
 }

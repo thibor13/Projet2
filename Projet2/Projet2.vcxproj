@@ -168,6 +168,7 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletManager.hpp" />
+    <ClInclude Include="Dice.hpp" />
     <ClInclude Include="EnnemyManager.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Lib.hpp" />

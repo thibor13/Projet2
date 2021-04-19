@@ -62,5 +62,8 @@
     <ClInclude Include="Particle.hpp">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
+    <ClInclude Include="Dice.hpp">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

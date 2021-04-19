@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "PlayerController.hpp"
+
 
 using namespace std;
 using namespace sf;
@@ -18,13 +20,18 @@ public:
 	};
 
 	BulletManager() {};
-	BulletManager(Game* _games);
+	BulletManager(Game* _games, PlayerController* _player);
 
 	Game* game = nullptr;
+	PlayerController* player = nullptr;
 
 	vector<Bullet> bullets;
 	vector<Bullet> enemyBullets;
 	float bulletSpeed = 5.f;
+
+	bool isHit = false;
+	Clock timeToNextHit;
+	double shake = 0.0;
 
 	void BulletPlayerSpawning(float& trajectoire);
 	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob);

@@ -2,6 +2,7 @@
 
 PlayerController::PlayerController() {
 	
+	
 }
 
 void PlayerController::PlayerUpdate(double dt) {

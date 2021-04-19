@@ -15,7 +15,7 @@ SceneManager::SceneManager() {
 	menuSc.SetBgMenu();
 }
 
-void SceneManager::UpdateScene(double dt) {
+void SceneManager::UpdateScene(double dt, RenderWindow& win) {
 
 	if (menuSc.isGame == false) {
 		
@@ -23,7 +23,7 @@ void SceneManager::UpdateScene(double dt) {
 	}
 	else if(menuSc.isGame == true){
 		
-		gameSc.UpdateGame(dt);
+		gameSc.UpdateGame(dt, win);
 	}
 }
 

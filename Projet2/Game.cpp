@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Particle.hpp"
 
+
 Game::Game() {
 	
 }
@@ -42,11 +43,12 @@ void Game::GameDraw(RenderWindow& window) {
 	ennemyManager.DrawEnnemy(window);
 }
 
-void Game::UpdateGame(double dt) {
+void Game::UpdateGame(double dt, RenderWindow& win) {
 
 	player.PlayerUpdate(dt);
 	bulletManager.BulletUpdate(dt);
 	ennemyManager.UpdateEnnemy(dt);
+	Shake(win);
 }
 
 void Game::SetPlayerSprite() {
@@ -70,7 +72,7 @@ void Game::SetBulletEnemy() {
 
 void Game::SetBulletPlayer() {
 
-	bulletManager = BulletManager(this);
+	bulletManager = BulletManager(this, &player);
 
 	if (!bulletManager.bulletTexture.loadFromFile("res/BULLET.PNG"))
 		printf("erreur: bullet texture fail load\n");
@@ -78,7 +80,7 @@ void Game::SetBulletPlayer() {
 
 void Game::SetEnnemies() {
 
-	ennemyManager = EnnemyManager(this, EnnemyManager::bulletMana);
+	ennemyManager = EnnemyManager(this, &bulletManager);
 
 	if(!ennemyManager.ennemyTex1.loadFromFile("res/SHIP1.PNG"))
 		printf("erreur: ennemy1 texture fail load\n");
@@ -117,6 +119,23 @@ void Game::CreatesExplode(Vector2f pos, Color black)
 		boom.push_back(p);
 	}
 }
+
+void Game::Shake(RenderWindow &win) {
+
+	View v = win.getDefaultView();
+	Vector2f viewCenter = v.getCenter();
+	win.setView(v);
+	Vector2f n(viewCenter);
+
+	n.x += bulletManager.shake * 5 * Dice::randSign();
+	n.y += -bulletManager.shake * 5 * Dice::randSign();
+
+	v.setCenter(n);
+	bulletManager.shake *= 0.85;
+	if (bulletManager.shake <= 0.01)
+		bulletManager.shake = 0.0;
+}
+
 
 
 

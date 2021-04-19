@@ -14,7 +14,7 @@ public:
 
 	SceneManager();
 
-	void UpdateScene(double dt);
+	void UpdateScene(double dt, RenderWindow& win);
 	void SceneDraw(RenderWindow &window);
 	void ProcessInput(Event& event, RenderWindow& window);
 
