@@ -9,6 +9,24 @@ SceneManager::SceneManager() {
 	gameSc.SetBulletPlayer();
 	gameSc.SetEnnemies();
 	gameSc.SetBulletEnemy();
+	gameSc.SetWall();
+	gameSc.SetScore();
+	
+	menuSc = Menu();
+	menuSc.SetFont();
+	menuSc.SetBgMenu();
+}
+
+void SceneManager::ResetScene() {
+
+	gameSc = Game();
+	gameSc.SetBg();
+	gameSc.SetPlayerSprite();
+	gameSc.SetBulletPlayer();
+	gameSc.SetEnnemies();
+	gameSc.SetBulletEnemy();
+	gameSc.SetWall();
+	gameSc.SetScore();
 
 	menuSc = Menu();
 	menuSc.SetFont();

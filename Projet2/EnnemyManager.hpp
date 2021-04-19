@@ -29,7 +29,7 @@ public:
 	bool isFire = false;
 
 	void UpdateEnnemy(float dt);
-	void SpawnEnnemy();
+	void SpawnEnnemy(Texture texture, int rows, int numberOfEnemies, int life, int pts, float speedE);
 	void DrawEnnemy(RenderWindow& window);
 	void move(float dirX, float dirY);
 	void CollisionMob();
@@ -47,4 +47,8 @@ public:
 	Texture ennemyTex2;
 	Texture ennemyTex3;
 	Texture ennemyTex4;
+
+	Texture bulletEnnemyTexture1;
+	Texture bulletEnnemyTexture2;
+	Texture bulletEnnemyTexture3;
 };

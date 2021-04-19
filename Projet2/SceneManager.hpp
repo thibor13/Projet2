@@ -17,6 +17,6 @@ public:
 	void UpdateScene(double dt, RenderWindow& win);
 	void SceneDraw(RenderWindow &window);
 	void ProcessInput(Event& event, RenderWindow& window);
-
+	void ResetScene();
 	
 };

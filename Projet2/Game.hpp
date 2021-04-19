@@ -23,10 +23,21 @@ public:
 	vector<Particles> boom;
 	Game();
 
+	bool gameOver = false;
+	bool winner = false;
+
 	RectangleShape  backGround;
 	Texture bg;
 	RenderWindow* win = nullptr;
 
+	Font fontScore;
+	Text scoreTxt;
+
+	Image wall;
+	Sprite walls;
+	Texture wallTexture;
+
+	void SetWall();
 	void SetPlayerSprite();
 	void SetBulletPlayer();
 	void SetBulletEnemy();
@@ -37,6 +48,8 @@ public:
 	void UpdateGame(double dt, RenderWindow& win);
 	void CreatesExplode(Vector2f enePos, Color little);
 	void Shake(RenderWindow& win);
+	void Wall();
+	void SetScore();
 };
 
 

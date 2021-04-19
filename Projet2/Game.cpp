@@ -49,6 +49,9 @@ void Game::UpdateGame(double dt, RenderWindow& win) {
 	bulletManager.BulletUpdate(dt);
 	ennemyManager.UpdateEnnemy(dt);
 	Shake(win);
+
+	scoreTxt.setString(to_string(player.score));
+	
 }
 
 void Game::SetPlayerSprite() {
@@ -72,10 +75,36 @@ void Game::SetBulletEnemy() {
 
 void Game::SetBulletPlayer() {
 
-	bulletManager = BulletManager(this, &player);
+	bulletManager = BulletManager(this, &player, &ennemyManager);
 
 	if (!bulletManager.bulletTexture.loadFromFile("res/BULLET.PNG"))
 		printf("erreur: bullet texture fail load\n");
+}
+
+void Game::SetWall() {
+
+	if (!wall.loadFromFile("res/WALL.PNG"))
+		printf("error: wall not load");
+}
+
+void Game::Wall() {
+
+	wall.create(40, 20);
+	wallTexture.loadFromImage(wall);
+	walls.setTexture(wallTexture);
+	//walls.setPosition(20, 20);
+}
+
+void Game::SetScore() {
+
+	if (!fontScore.loadFromFile("res/ARIAL.TTF")) {
+		cout << "ERROR NO FONT" << endl;
+	}
+
+	scoreTxt.setFont(fontScore);
+	scoreTxt.setCharacterSize(12);
+	scoreTxt.setFillColor(Color::Red);
+	scoreTxt.setPosition(20, 20);
 }
 
 void Game::SetEnnemies() {
@@ -124,13 +153,15 @@ void Game::Shake(RenderWindow &win) {
 
 	View v = win.getDefaultView();
 	Vector2f viewCenter = v.getCenter();
-	win.setView(v);
 	Vector2f n(viewCenter);
+	
+	
 
-	n.x += bulletManager.shake * 5 * Dice::randSign();
-	n.y += -bulletManager.shake * 5 * Dice::randSign();
+	n.x += bulletManager.shake * 2 * Dice::randSign();
+	n.y += -bulletManager.shake * 2 * Dice::randSign();
 
 	v.setCenter(n);
+	win.setView(v);
 	bulletManager.shake *= 0.85;
 	if (bulletManager.shake <= 0.01)
 		bulletManager.shake = 0.0;

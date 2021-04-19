@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "PlayerController.hpp"
+#include "EnnemyManager.hpp"
 
 
 using namespace std;
@@ -20,10 +21,11 @@ public:
 	};
 
 	BulletManager() {};
-	BulletManager(Game* _games, PlayerController* _player);
+	BulletManager(Game* _games, PlayerController* _player, EnnemyManager* _enemyManager);
 
 	Game* game = nullptr;
 	PlayerController* player = nullptr;
+	EnnemyManager* enemyManager = nullptr;
 
 	vector<Bullet> bullets;
 	vector<Bullet> enemyBullets;
@@ -34,7 +36,7 @@ public:
 	double shake = 0.0;
 
 	void BulletPlayerSpawning(float& trajectoire);
-	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob);
+	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture texture);
 	void BulletRender(RenderWindow& window);
 	void BulletUpdate(float dt);
 	

@@ -5,10 +5,11 @@
 using namespace sf;
 using namespace std;
 
-BulletManager::BulletManager(Game *_game, PlayerController *_player) {
+BulletManager::BulletManager(Game *_game, PlayerController *_player, EnnemyManager* _enemyManager) {
 
 	game = _game;
 	player = _player;
+	enemyManager = _enemyManager;
 }
 
 void BulletManager::BulletRender(RenderWindow &window) {
@@ -35,6 +36,13 @@ void BulletManager::BulletUpdate(float dt) {
 			if (posBullets.x > 1280 || posBullets.y > 720 || posBullets.x < 0 || posBullets.y < 0) {
 				bullets[i].isDestroyed = true;
 			}
+
+			for (int j = enemyManager->ennemies.size() - 1; j >= 0; j--) {
+				if (enemyManager->ennemies[j].ennemy.getGlobalBounds().contains(posBullets)) {
+					bullets[i].isDestroyed = true;
+
+				}
+			}
 		}
 
 		if (bullets[i].isDestroyed == true)
@@ -56,6 +64,7 @@ void BulletManager::BulletUpdate(float dt) {
 					
 				shake = 15;
 				enemyBullets[i].isDestroyed = true;
+				player->hp -= 1;
 			}
 		}
 
@@ -76,13 +85,13 @@ void BulletManager::BulletPlayerSpawning(float& trajectoire) {
 	bullets.push_back(bullet);
 }
 
-void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob) {
+void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture texture) {
 
 	Bullet enemyBullet;
 
 	enemyBullet.bulletP.setScale(0.4f, 0.4f);
 	enemyBullet.bulletP.setOrigin(0.2f, 0.2f);
-	enemyBullet.bulletP.setTexture(bulletEnnemyTexture1);
+	enemyBullet.bulletP.setTexture(texture);
 	enemyBullet.traj = trajectoire;
 	enemyBullet.bulletP.setPosition(posMob.x,posMob.y + enemyBullet.traj * dt * bulletSpeed);
 	enemyBullets.push_back(enemyBullet);

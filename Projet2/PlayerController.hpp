@@ -7,13 +7,13 @@ using namespace std;
 class PlayerController {
 public:
 
-	
-	float speed;
+	float speed = 0.f;
 	int hp = 3;
-	int score;
+	int score = 0;
 
-	Sprite lisSpr;
-	Texture lifetxtu;
+	Text hpTxt;
+	Font hpFont;
+
 	Sprite spaceShip;
 	Texture ship;
 

@@ -20,7 +20,7 @@ void EnnemyManager::chooseTimer(int x, int y) {
 void EnnemyManager::UpdateEnnemy(float dt) {
 
 	if (hasSpawned == false) {
-		SpawnEnnemy();
+		SpawnEnnemy(ennemyTex1, 4, 14, 2, 10, 0.10f);
 		hasSpawned = true;
 	}
 	
@@ -46,29 +46,27 @@ void EnnemyManager::UpdateEnnemy(float dt) {
 
 		float trajectoire = 20.f;
 		Vector2f enemiesPos = ennemies[rand() % (ennemies.size() - 1)].ennemy.getPosition();
-		bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos);
+		bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture1);
 		chooseTimer(1.f,2.f);
 		fireTime.restart();
 	}
 }
 
-void EnnemyManager::SpawnEnnemy() {
+void EnnemyManager::SpawnEnnemy(Texture texture, int rows, int numberOfEnemies, int life, int pts, float speedE) {
 
 	Ennemy ennemyClass;
-	rows = 3;
-	numberOfEnnemies = 14;
 	
 	ennemyClass.ennemy.setScale(0.2f, 0.2f);
 	ennemyClass.ennemy.setOrigin(0.1f, 0.1f);
-	ennemyClass.ennemy.setTexture(ennemyTex1);
+	ennemyClass.ennemy.setTexture(texture);
 
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < numberOfEnnemies; j++) {
 
 			ennemyClass.ennemy.setPosition(Vector2f(250 + j * 60, 40 + i * 60));
-			ennemyClass.hp = 100;
-			ennemyClass.points = 10;
-			ennemyClass.speed = 10.f;
+			ennemyClass.hp = life;
+			ennemyClass.points = pts;
+			ennemyClass.speed = speedE;
 			ennemies.push_back(ennemyClass);
 		}
 	}

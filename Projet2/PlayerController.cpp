@@ -1,7 +1,7 @@
 #include "PlayerController.hpp"
+#include <iostream>
 
 PlayerController::PlayerController() {
-	
 	
 }
 
@@ -26,8 +26,18 @@ void PlayerController::PlayerUpdate(double dt) {
 
 		spaceShip.setPosition(Vector2f(1280 - getScalingPos, posPlayer.y));
 	}
-	
+
+	if (!hpFont.loadFromFile("res/ARIAL.TTF")) {
+		cout << "ERROR NO FONT" << endl;
+	}
+
+	hpTxt.setFont(hpFont);
+	hpTxt.setCharacterSize(12);
+	hpTxt.setPosition(20, 700);
+	hpTxt.setFillColor(Color::Red);
+	hpTxt.setString(to_string(hp));
 }
+
 
 
 
