@@ -9,11 +9,11 @@ Menu::Menu() {
 
 	//float width = 1280, float height = 720;
 	menu[0].setString("Jouer");
-	menu[0].setPosition(Vector2f(1280 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+	menu[0].setPosition(Vector2f(1200 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 	menu[0].setFillColor(Color::Red);
 	
 	menu[1].setString("Quitter");
-	menu[1].setPosition(Vector2f(1280 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 2));
+	menu[1].setPosition(Vector2f(1200 / 2, 720 / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 	menu[1].setFillColor(Color::Yellow);
 
 	selectedIndex = 0;

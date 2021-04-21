@@ -28,7 +28,7 @@ void BulletManager::BulletUpdate(float dt) {
 	//player
 	for (int i = bullets.size() - 1; i >= 0; i--) {
 
-		bullets[i].bulletP.setPosition(bullets[i].bulletP.getPosition().x, bullets[i].bulletP.getPosition().y + bullets[i].traj * dt * bulletSpeed);
+		bullets[i].bulletP.setPosition(bullets[i].bulletP.getPosition().x, bullets[i].bulletP.getPosition().y + bullets[i].traj * dt * playerBulletSpeed);
 
 		Vector2f posBullets = bullets[i].bulletP.getPosition();
 
@@ -40,7 +40,8 @@ void BulletManager::BulletUpdate(float dt) {
 			for (int j = enemyManager->ennemies.size() - 1; j >= 0; j--) {
 				if (enemyManager->ennemies[j].ennemy.getGlobalBounds().contains(posBullets)) {
 					bullets[i].isDestroyed = true;
-
+					enemyManager->ennemies[j].hp -= 1;
+					player->score += 10;
 				}
 			}
 		}
@@ -52,7 +53,7 @@ void BulletManager::BulletUpdate(float dt) {
 	//enemy
 	for (int i = enemyBullets.size() - 1; i >= 0; i--) {
 
-		enemyBullets[i].bulletP.setPosition(enemyBullets[i].bulletP.getPosition().x, enemyBullets[i].bulletP.getPosition().y + enemyBullets[i].traj * dt * bulletSpeed);
+		enemyBullets[i].bulletP.setPosition(enemyBullets[i].bulletP.getPosition().x, enemyBullets[i].bulletP.getPosition().y + enemyBullets[i].traj * dt * enemyBulletSpeed);
 
 		Vector2f posEnemyBullets = enemyBullets[i].bulletP.getPosition();
 
@@ -85,7 +86,7 @@ void BulletManager::BulletPlayerSpawning(float& trajectoire) {
 	bullets.push_back(bullet);
 }
 
-void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture texture) {
+void BulletManager::BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture &texture, float bulletSpeed) {
 
 	Bullet enemyBullet;
 

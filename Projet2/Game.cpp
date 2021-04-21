@@ -1,10 +1,11 @@
 #include "Game.hpp"
 #include <iostream>
 #include "Particle.hpp"
+#include "Menu.hpp"
 
+Game::Game(Menu* _menuSet) {
 
-Game::Game() {
-	
+	menuSet = _menuSet;
 }
 
 void Game::processEvent(sf::Event& event, RenderWindow& window) {
@@ -27,11 +28,14 @@ void Game::processEvent(sf::Event& event, RenderWindow& window) {
 	break;
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+	if (Keyboard::isKeyPressed(Keyboard::Q)) {
 		player.isMovingLeft = true;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+	if (Keyboard::isKeyPressed(Keyboard::D)) {
 		player.isMovingRight = true;
+	}
+	if ((gameOver == true && Keyboard::isKeyPressed(Keyboard::Escape)) || (winner == true && Keyboard::isKeyPressed(Keyboard::Escape))) {
+		menuSet->isGame = false;
 	}
 }
 
@@ -41,17 +45,24 @@ void Game::GameDraw(RenderWindow& window) {
 	window.draw(player.spaceShip);
 	bulletManager.BulletRender(window);
 	ennemyManager.DrawEnnemy(window);
+	window.draw(scoreTxt);
+	window.draw(player.hpTxt);
+	window.draw(loose);
+	window.draw(returnMenu);
+	window.draw(wins);
 }
 
 void Game::UpdateGame(double dt, RenderWindow& win) {
 
-	player.PlayerUpdate(dt);
-	bulletManager.BulletUpdate(dt);
-	ennemyManager.UpdateEnnemy(dt);
-	Shake(win);
+	GameOver();
+	if (gameOver == false && winner == false) {
 
+		player.PlayerUpdate(dt);
+		bulletManager.BulletUpdate(dt);
+		ennemyManager.UpdateEnnemy(dt);
+		Shake(win);
+	}
 	scoreTxt.setString(to_string(player.score));
-	
 }
 
 void Game::SetPlayerSprite() {
@@ -61,15 +72,21 @@ void Game::SetPlayerSprite() {
 	if (!player.ship.loadFromFile("res/SPACESHIP1.PNG"))
 		printf("ERR : LOAD FAILED\n");
 
-	player.spaceShip.setOrigin(0.4f, player.spaceShip.getScale().y);
+	player.spaceShip.setOrigin(player.ship.getSize().x * player.spaceShip.getScale().x/2,0);
 	player.spaceShip.setPosition(640, 630);
 	player.spaceShip.setTexture(player.ship);
-	player.getScalingPos = player.ship.getSize().x * player.spaceShip.getScale().x;
+	player.getScalingPos = player.ship.getSize().x * player.spaceShip.getScale().x /2.0;
 }
 
 void Game::SetBulletEnemy() {
 
-	if (!bulletManager.bulletEnnemyTexture1.loadFromFile("res/MOBBULLET.PNG"))
+	if (!ennemyManager.bulletEnnemyTexture1.loadFromFile("res/MOBBULLET.PNG"))
+		printf("erreur: bullet1 no load");
+	if (!ennemyManager.bulletEnnemyTexture2.loadFromFile("res/MOBBULLET2.PNG"))
+		printf("erreur: bullet1 no load");
+	if (!ennemyManager.bulletEnnemyTexture3.loadFromFile("res/MOBBULLET3.PNG"))
+		printf("erreur: bullet1 no load");
+	if (!ennemyManager.bulletEnnemyTexture4.loadFromFile("res/MOBBULLET4.PNG"))
 		printf("erreur: bullet1 no load");
 }
 
@@ -102,8 +119,8 @@ void Game::SetScore() {
 	}
 
 	scoreTxt.setFont(fontScore);
-	scoreTxt.setCharacterSize(12);
-	scoreTxt.setFillColor(Color::Red);
+	scoreTxt.setCharacterSize(20);
+	scoreTxt.setFillColor(Color::Green);
 	scoreTxt.setPosition(20, 20);
 }
 
@@ -154,8 +171,6 @@ void Game::Shake(RenderWindow &win) {
 	View v = win.getDefaultView();
 	Vector2f viewCenter = v.getCenter();
 	Vector2f n(viewCenter);
-	
-	
 
 	n.x += bulletManager.shake * 2 * Dice::randSign();
 	n.y += -bulletManager.shake * 2 * Dice::randSign();
@@ -165,6 +180,49 @@ void Game::Shake(RenderWindow &win) {
 	bulletManager.shake *= 0.85;
 	if (bulletManager.shake <= 0.01)
 		bulletManager.shake = 0.0;
+}
+
+void Game::GameOver() {
+
+	if (player.hp <= 0 && gameOver == false) {
+
+		gameOver = true;
+		loose.setFont(fontScore);
+		loose.setFillColor(Color::Green);
+		loose.setCharacterSize(40);
+		loose.setPosition(600, 260);
+		loose.setString("PERDU!!!");
+
+		returnMenu.setFont(fontScore);
+		returnMenu.setFillColor(Color::Green);
+		returnMenu.setCharacterSize(18);
+		returnMenu.setPosition(560, 320);
+		returnMenu.setString("échap pour retourner au menu");
+
+		scoreTxt.setPosition(640, 200);
+		scoreTxt.setCharacterSize(40);
+	}
+}
+
+void Game::Win() {
+	if (winner == false && ennemyManager.vague == 4 && ennemyManager.ennemies.size() == 0) {
+
+		winner = true;
+		wins.setFont(fontScore);
+		wins.setCharacterSize(40);
+		wins.setFillColor(Color::Green);
+		wins.setPosition(600, 260);
+		wins.setString("GAGNER!!!");
+
+		returnMenu.setFont(fontScore);
+		returnMenu.setFillColor(Color::Green);
+		returnMenu.setCharacterSize(18);
+		returnMenu.setPosition(560, 320);
+		returnMenu.setString("échap pour retourner au menu");
+
+		scoreTxt.setPosition(640, 200);
+		scoreTxt.setCharacterSize(40);
+	}
 }
 
 

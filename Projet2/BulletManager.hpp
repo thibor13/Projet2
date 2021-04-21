@@ -3,7 +3,6 @@
 #include "PlayerController.hpp"
 #include "EnnemyManager.hpp"
 
-
 using namespace std;
 using namespace sf;
 
@@ -29,20 +28,18 @@ public:
 
 	vector<Bullet> bullets;
 	vector<Bullet> enemyBullets;
-	float bulletSpeed = 5.f;
+	float playerBulletSpeed = 5.f;
+	float enemyBulletSpeed = 6.f;
 
 	bool isHit = false;
 	Clock timeToNextHit;
 	double shake = 0.0;
 
 	void BulletPlayerSpawning(float& trajectoire);
-	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture texture);
+	void BulletEnnemySpawning(float& trajectoire, float dt, Vector2f posMob, Texture &texture, float bulletSpeed);
 	void BulletRender(RenderWindow& window);
 	void BulletUpdate(float dt);
 	
 	Texture bulletTexture;
-	Texture bulletEnnemyTexture1;
-	Texture bulletEnnemyTexture2;
-	Texture bulletEnnemyTexture3;
 	Texture bulletBoss;
 };

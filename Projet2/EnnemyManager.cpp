@@ -1,6 +1,7 @@
 #include "EnnemyManager.hpp"
 #include "Game.hpp"
 #include <iostream>
+#include "BulletManager.hpp"
 
 using namespace std;
 using namespace sf;
@@ -19,8 +20,24 @@ void EnnemyManager::chooseTimer(int x, int y) {
 
 void EnnemyManager::UpdateEnnemy(float dt) {
 
-	if (hasSpawned == false) {
-		SpawnEnnemy(ennemyTex1, 4, 14, 2, 10, 0.10f);
+	if (vague == 0 && hasSpawned == false) {
+		SpawnEnnemy(ennemyTex1, 4, 14, 2, 10, 10.f);
+		vague = 1;
+		hasSpawned = true;
+	}
+	else if (ennemies.size() == 0 && vague == 1 && hasSpawned == false) {
+		SpawnEnnemy(ennemyTex2, 4, 14, 3, 20, 14.f);
+		vague = 2;
+		hasSpawned = true;
+	}
+	else if (ennemies.size() == 0 && vague == 2 && hasSpawned == false) {
+		SpawnEnnemy(ennemyTex3, 3, 14, 3, 30, 16.f);
+		vague = 3;
+		hasSpawned = true;
+	}
+	else if (ennemies.size() == 0 && vague == 3 && hasSpawned == false) {
+		SpawnEnnemy(ennemyTex4, 3, 14, 3, 40, 18.f);
+		vague = 4;
 		hasSpawned = true;
 	}
 	
@@ -40,19 +57,45 @@ void EnnemyManager::UpdateEnnemy(float dt) {
 		CollisionMob();
 	}
 
-	//enemy fire
-	float time = fireTime.getElapsedTime().asSeconds();
-	if (time >= timer) {
+	for (int i = ennemies.size() - 1; i >= 0; i--) {
 
-		float trajectoire = 20.f;
-		Vector2f enemiesPos = ennemies[rand() % (ennemies.size() - 1)].ennemy.getPosition();
-		bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture1);
-		chooseTimer(1.f,2.f);
-		fireTime.restart();
+		if(ennemies[i].hp<=0)
+			ennemies.erase(ennemies.begin() + i);
 	}
+
+	 
+		if (ennemies.size() > 0) {
+			//enemy fire
+			float time = fireTime.getElapsedTime().asSeconds();
+			if (time >= timer) {
+
+				float trajectoire = 20.f;
+				Vector2f enemiesPos = ennemies[rand() % (ennemies.size())].ennemy.getPosition();
+				if (vague == 1) {
+					bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture1, 8.f);
+				}
+				else if (vague == 2) {
+					bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture2, 10.f);
+				}
+				else if (vague == 3) {
+					bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture3, 12.f);
+				}
+				else if (vague == 4) {
+					bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture4, 14.f);
+				}
+				
+				chooseTimer(1.f, 2.f);
+				fireTime.restart();
+			}
+		}
+		else if (ennemies.size() == 0) {
+			hasSpawned = false;
+		}
+	
+	
 }
 
-void EnnemyManager::SpawnEnnemy(Texture texture, int rows, int numberOfEnemies, int life, int pts, float speedE) {
+void EnnemyManager::SpawnEnnemy(Texture &texture, int rows, int numberOfEnemies, int life, int pts, float speedE) {
 
 	Ennemy ennemyClass;
 	
@@ -61,7 +104,7 @@ void EnnemyManager::SpawnEnnemy(Texture texture, int rows, int numberOfEnemies, 
 	ennemyClass.ennemy.setTexture(texture);
 
 	for (int i = 0; i < rows; i++) {
-		for (int j = 0; j < numberOfEnnemies; j++) {
+		for (int j = 0; j < numberOfEnemies; j++) {
 
 			ennemyClass.ennemy.setPosition(Vector2f(250 + j * 60, 40 + i * 60));
 			ennemyClass.hp = life;

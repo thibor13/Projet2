@@ -1,10 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "BulletManager.hpp"
+//#include "BulletManager.hpp"
 
 using namespace std;
 using namespace sf;
 
+class BulletManager;
 class Game;
 class EnnemyManager {
 public:
@@ -27,9 +28,10 @@ public:
 	vector<Ennemy>ennemies;
 	bool hasSpawned = false;
 	bool isFire = false;
+	int vague = 0;
 
 	void UpdateEnnemy(float dt);
-	void SpawnEnnemy(Texture texture, int rows, int numberOfEnemies, int life, int pts, float speedE);
+	void SpawnEnnemy(Texture &texture, int rows, int numberOfEnemies, int life, int pts, float speedE);
 	void DrawEnnemy(RenderWindow& window);
 	void move(float dirX, float dirY);
 	void CollisionMob();
@@ -37,7 +39,7 @@ public:
 	
 	bool hitWindow = false;
 	int rows = 0;
-	int numberOfEnnemies = 0;
+	int numberOfEnemies = 0;
 	float timer = 0.f;
 
 	Clock timeToMove;
@@ -51,4 +53,5 @@ public:
 	Texture bulletEnnemyTexture1;
 	Texture bulletEnnemyTexture2;
 	Texture bulletEnnemyTexture3;
+	Texture bulletEnnemyTexture4;
 };

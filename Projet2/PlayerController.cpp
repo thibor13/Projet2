@@ -32,9 +32,9 @@ void PlayerController::PlayerUpdate(double dt) {
 	}
 
 	hpTxt.setFont(hpFont);
-	hpTxt.setCharacterSize(12);
-	hpTxt.setPosition(20, 700);
-	hpTxt.setFillColor(Color::Red);
+	hpTxt.setCharacterSize(36);
+	hpTxt.setPosition(20, 680);
+	hpTxt.setFillColor(Color::Green);
 	hpTxt.setString(to_string(hp));
 }
 

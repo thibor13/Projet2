@@ -3,7 +3,11 @@
 SceneManager::SceneManager() {
 
 	//initialisations des scènes
-	gameSc = Game();
+	menuSc = Menu();
+	menuSc.SetFont();
+	menuSc.SetBgMenu();
+
+	gameSc = Game(&menuSc);
 	gameSc.SetBg();
 	gameSc.SetPlayerSprite();
 	gameSc.SetBulletPlayer();
@@ -11,15 +15,15 @@ SceneManager::SceneManager() {
 	gameSc.SetBulletEnemy();
 	gameSc.SetWall();
 	gameSc.SetScore();
-	
-	menuSc = Menu();
-	menuSc.SetFont();
-	menuSc.SetBgMenu();
 }
 
 void SceneManager::ResetScene() {
 
-	gameSc = Game();
+	menuSc = Menu();
+	menuSc.SetFont();
+	menuSc.SetBgMenu();
+
+	gameSc = Game(&menuSc);
 	gameSc.SetBg();
 	gameSc.SetPlayerSprite();
 	gameSc.SetBulletPlayer();
@@ -27,10 +31,6 @@ void SceneManager::ResetScene() {
 	gameSc.SetBulletEnemy();
 	gameSc.SetWall();
 	gameSc.SetScore();
-
-	menuSc = Menu();
-	menuSc.SetFont();
-	menuSc.SetBgMenu();
 }
 
 void SceneManager::UpdateScene(double dt, RenderWindow& win) {
@@ -38,6 +38,7 @@ void SceneManager::UpdateScene(double dt, RenderWindow& win) {
 	if (menuSc.isGame == false) {
 		
 		menuSc.MenuUpdate();
+		ResetScene();
 	}
 	else if(menuSc.isGame == true){
 		

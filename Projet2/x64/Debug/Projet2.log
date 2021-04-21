@@ -1,64 +1,18 @@
-﻿  BulletManager.cpp
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(22,15): error C2061: erreur de syntaxe : identificateur 'BulletManager'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C2143: erreur de syntaxe : absence de ';' avant '*'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,37): error C2238: jetons inattendus avant ';'
+﻿  EnnemyManager.cpp
 D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(29,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(40,4): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.cpp(53,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-  EnnemyManager.cpp
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.hpp(24,15): error C2061: erreur de syntaxe : identificateur 'EnnemyManager'
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.hpp(28,15): error C2143: erreur de syntaxe : absence de ';' avant '*'
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.hpp(28,15): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-D:\Projetrattrapage\Projet2\Projet2\BulletManager.hpp(28,39): error C2238: jetons inattendus avant ';'
-D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(50,19): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(50,15): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(66,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(60,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(87,22): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(87,17): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(109,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(66,48): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(109,48): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(77,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(107,3): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-  Game.cpp
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(22,15): error C2061: erreur de syntaxe : identificateur 'BulletManager'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C2143: erreur de syntaxe : absence de ';' avant '*'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,37): error C2238: jetons inattendus avant ';'
-D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(49,29): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(50,29): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(112,52): error C2440: '<function-style-cast>' : impossible de convertir de 'initializer list' en 'EnnemyManager'
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(112,52): message : Aucun constructeur n'a pu prendre le type de source, ou la résolution de la surcharge du constructeur était ambiguë
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(145,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(146,12): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(160,51): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-D:\Projetrattrapage\Projet2\Projet2\Game.cpp(161,52): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-  Projet2.cpp
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(22,15): error C2061: erreur de syntaxe : identificateur 'BulletManager'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C2143: erreur de syntaxe : absence de ';' avant '*'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,37): error C2238: jetons inattendus avant ';'
-D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  SceneManager.cpp
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(22,15): error C2061: erreur de syntaxe : identificateur 'BulletManager'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C2143: erreur de syntaxe : absence de ';' avant '*'
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.hpp(25,37): error C2238: jetons inattendus avant ';'
-D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  Génération de code en cours...
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(120,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(150,3): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  Projet2.vcxproj -> D:\Projetrattrapage\Projet2\x64\Debug\Projet2.exe

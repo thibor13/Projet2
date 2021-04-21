@@ -9,9 +9,11 @@
 #include "Particle.hpp"
 #include "Dice.hpp"
 
+
 using namespace std;
 using namespace sf;
 
+class Menu;
 class Game {
 public:
 
@@ -20,8 +22,12 @@ public:
 	EnnemyManager ennemyManager;
 	Dice dice;
 
+	Menu* menuSet = nullptr;
+
 	vector<Particles> boom;
-	Game();
+
+	Game() {};
+	Game(Menu* _menuSet);
 
 	bool gameOver = false;
 	bool winner = false;
@@ -32,6 +38,9 @@ public:
 
 	Font fontScore;
 	Text scoreTxt;
+	Text loose;
+	Text wins;
+	Text returnMenu;
 
 	Image wall;
 	Sprite walls;
@@ -50,6 +59,8 @@ public:
 	void Shake(RenderWindow& win);
 	void Wall();
 	void SetScore();
+	void GameOver();
+	void Win();
 };
 
 
