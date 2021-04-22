@@ -1,18 +1,4 @@
-﻿  EnnemyManager.cpp
-D:\Projetrattrapage\Projet2\Projet2\Particle.hpp(37,27): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(60,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(87,22): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(87,17): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(109,61): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(109,48): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
-          with
-          [
-              T=float
-          ]
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(120,2): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-D:\Projetrattrapage\Projet2\Projet2\EnnemyManager.cpp(150,3): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+﻿  PlayerController.cpp
+D:\Projetrattrapage\Projet2\Projet2\PlayerController.cpp(12,24): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+D:\Projetrattrapage\Projet2\Projet2\PlayerController.cpp(16,24): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
   Projet2.vcxproj -> D:\Projetrattrapage\Projet2\x64\Debug\Projet2.exe

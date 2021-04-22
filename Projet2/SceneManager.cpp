@@ -38,7 +38,10 @@ void SceneManager::UpdateScene(double dt, RenderWindow& win) {
 	if (menuSc.isGame == false) {
 		
 		menuSc.MenuUpdate();
-		ResetScene();
+		if (menuSc.isReset == true) {
+			ResetScene();
+			menuSc.isReset = false;
+		}
 	}
 	else if(menuSc.isGame == true){
 		
@@ -58,7 +61,6 @@ void SceneManager::SceneDraw(RenderWindow &window) {
 		gameSc.GameDraw(window);
 		window.display();
 	}
-	
 }
 
 void SceneManager::ProcessInput(Event &event, RenderWindow &window) {
@@ -70,6 +72,5 @@ void SceneManager::ProcessInput(Event &event, RenderWindow &window) {
 	else if (menuSc.isGame == true) {
 		gameSc.processEvent(event, window);
 	}
-	
 }
 

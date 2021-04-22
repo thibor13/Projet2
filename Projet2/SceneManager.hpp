@@ -18,5 +18,4 @@ public:
 	void SceneDraw(RenderWindow &window);
 	void ProcessInput(Event& event, RenderWindow& window);
 	void ResetScene();
-	
 };

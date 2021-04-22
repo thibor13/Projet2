@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 using namespace std;
 using namespace sf;
@@ -25,6 +26,10 @@ public:
 	void MenuUpdate();
 
 	bool isGame = false;
+	bool isReset = false;
+
+	SoundBuffer sbMenuButton;
+	Sound menuButton;
 
 private:
 	int selectedIndex;

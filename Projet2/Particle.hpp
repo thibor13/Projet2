@@ -1,7 +1,9 @@
 #pragma once
 #include "SFML/Graphics.hpp"
 #include <functional>
+
 using namespace sf;
+
 class Particles
 {
 public:
@@ -13,7 +15,7 @@ public:
     float          dx = 0.0f;
     float          dy = 0.0f;
 
-    float          life = 5.0f;
+    float          life = 0.5f;
 
     float          scaleX = 1.0;
     float          scaleY = 1.0;
@@ -22,11 +24,11 @@ public:
 
     Particles()
     {
-        el = RectangleShape(Vector2f(8, 8));
-        el.setOrigin(4, 4);
-        el.setFillColor(Color::Black);
+        el = RectangleShape(Vector2f(3, 3));
+        el.setOrigin(1.5f, 1.5f);
+        el.setFillColor(Color(rand() % 255, rand() % 255, rand() % 255));
         el.setPosition(x, y);
-        life = 20;
+        life = 1;
     }
     void update(float dt)
     {
@@ -39,21 +41,5 @@ public:
         life -= dt;
 
         el.setScale(scaleX, scaleY);
-        /*if (life <= 10.0) {
-            dx *= 0.98;
-            dy = 0.98;
-        }/
-
-        if (life <= 20.0) {
-            scaleX *= 0.99;
-            scaleY = 0.99;
-        }
-        if (scaleX<0.1 ||scaleY<0.1) {
-            destroyed = true;
-        }
-        /if (el.getGlobalBounds().intersects(ele.getGlobalBounds())
-        {
-
-        }*/
     }
 };

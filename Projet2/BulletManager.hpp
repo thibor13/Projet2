@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "PlayerController.hpp"
 #include "EnnemyManager.hpp"
+#include <SFML/Audio.hpp>
 
 using namespace std;
 using namespace sf;

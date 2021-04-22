@@ -9,7 +9,6 @@
 #include "Particle.hpp"
 #include "Dice.hpp"
 
-
 using namespace std;
 using namespace sf;
 
@@ -55,12 +54,15 @@ public:
 	void processEvent(sf::Event &event, RenderWindow& window);
 	void GameDraw(RenderWindow& window);
 	void UpdateGame(double dt, RenderWindow& win);
-	void CreatesExplode(Vector2f enePos, Color little);
+	void CreatesExplode(Vector2f pos, Color color);
 	void Shake(RenderWindow& win);
 	void Wall();
 	void SetScore();
 	void GameOver();
 	void Win();
+
+	SoundBuffer sbPlayerFire;
+	Sound laserP;
 };
 
 

@@ -6,6 +6,9 @@
 Game::Game(Menu* _menuSet) {
 
 	menuSet = _menuSet;
+
+	if (!sbPlayerFire.loadFromFile("res/audio/laserPlayer.ogg"))
+		printf("erreur: no sbLaserPlayer");
 }
 
 void Game::processEvent(sf::Event& event, RenderWindow& window) {
@@ -20,6 +23,9 @@ void Game::processEvent(sf::Event& event, RenderWindow& window) {
 			player.isMovingRight = false;
 			break;
 		case Keyboard::Space:
+			laserP.setBuffer(sbPlayerFire);
+			laserP.setVolume(75);
+			laserP.play();
 			float trajectoire = -20;
 			bulletManager.BulletPlayerSpawning(trajectoire);
 			cout << player.spaceShip.getPosition().x << endl;
@@ -36,6 +42,7 @@ void Game::processEvent(sf::Event& event, RenderWindow& window) {
 	}
 	if ((gameOver == true && Keyboard::isKeyPressed(Keyboard::Escape)) || (winner == true && Keyboard::isKeyPressed(Keyboard::Escape))) {
 		menuSet->isGame = false;
+		menuSet->isReset = true;
 	}
 }
 
@@ -50,10 +57,14 @@ void Game::GameDraw(RenderWindow& window) {
 	window.draw(loose);
 	window.draw(returnMenu);
 	window.draw(wins);
+	for (Particles &part : boom) {
+		window.draw(part.el);
+	}
 }
 
 void Game::UpdateGame(double dt, RenderWindow& win) {
 
+	Win();
 	GameOver();
 	if (gameOver == false && winner == false) {
 
@@ -61,21 +72,36 @@ void Game::UpdateGame(double dt, RenderWindow& win) {
 		bulletManager.BulletUpdate(dt);
 		ennemyManager.UpdateEnnemy(dt);
 		Shake(win);
+
+		for (int j = boom.size() - 1; j >= 0; j--) {
+
+			boom[j].update(dt);
+
+			if (boom[j].destroyed == false) {
+
+				if (boom[j].life <= 0) {
+
+					boom[j].destroyed = true;
+				}
+			}
+
+			if(boom[j].destroyed == true)
+				boom.erase(boom.begin() + j);
+		}
 	}
 	scoreTxt.setString(to_string(player.score));
 }
 
 void Game::SetPlayerSprite() {
 
-	player.spaceShip.setScale(Vector2f(0.8f, 0.8f));
-
 	if (!player.ship.loadFromFile("res/SPACESHIP1.PNG"))
 		printf("ERR : LOAD FAILED\n");
 
-	player.spaceShip.setOrigin(player.ship.getSize().x * player.spaceShip.getScale().x/2,0);
-	player.spaceShip.setPosition(640, 630);
 	player.spaceShip.setTexture(player.ship);
-	player.getScalingPos = player.ship.getSize().x * player.spaceShip.getScale().x /2.0;
+	player.spaceShip.setOrigin((float)player.ship.getSize().x /2.f,0);
+	player.spaceShip.setScale(Vector2f(0.8f, 0.8f));
+	player.spaceShip.setPosition(640, 630);
+	player.getScalingPos = ((float)player.ship.getSize().x * player.spaceShip.getScale().x) /2.f;
 }
 
 void Game::SetBulletEnemy() {
@@ -149,19 +175,20 @@ void Game::SetBg() {
 }
 
 //enemy die
-void Game::CreatesExplode(Vector2f pos, Color black)
+void Game::CreatesExplode(Vector2f pos, Color color)
 {
 	for (int i = 0; i < 100; i++)
 	{
 		Particles p;
+
 		p.x = pos.x;
 		p.y = pos.y;
 
 		float x = ((float)rand() / (float)(RAND_MAX)) * (1 - rand() % 3);
 		float y = ((float)rand() / (float)(RAND_MAX)) * (1 - rand() % 3);
-		p.dx = x * 1000.0;
-		p.dy = y * 1000.0;
-		p.el.setFillColor(black);
+		p.dx = x * 100.0;
+		p.dy = y * 100.0;
+		p.el.setFillColor(color);
 		boom.push_back(p);
 	}
 }
@@ -177,7 +204,7 @@ void Game::Shake(RenderWindow &win) {
 
 	v.setCenter(n);
 	win.setView(v);
-	bulletManager.shake *= 0.85;
+	bulletManager.shake *= 0.80;
 	if (bulletManager.shake <= 0.01)
 		bulletManager.shake = 0.0;
 }
@@ -205,6 +232,7 @@ void Game::GameOver() {
 }
 
 void Game::Win() {
+
 	if (winner == false && ennemyManager.vague == 4 && ennemyManager.ennemies.size() == 0) {
 
 		winner = true;

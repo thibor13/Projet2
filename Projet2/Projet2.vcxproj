@@ -167,6 +167,7 @@ flac.lib;%(AdditionalDependencies)</AdditionalDependencies>
     <ClCompile Include="SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.hpp" />
     <ClInclude Include="BulletManager.hpp" />
     <ClInclude Include="Dice.hpp" />
     <ClInclude Include="EnnemyManager.hpp" />

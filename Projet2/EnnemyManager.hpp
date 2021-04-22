@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 //#include "BulletManager.hpp"
 
 using namespace std;
@@ -25,10 +26,13 @@ public:
 	Game* gaming = nullptr;
 	BulletManager *bulletMana = nullptr;
 
+	
+
 	vector<Ennemy>ennemies;
 	bool hasSpawned = false;
 	bool isFire = false;
 	int vague = 0;
+	bool isDied = false;
 
 	void UpdateEnnemy(float dt);
 	void SpawnEnnemy(Texture &texture, int rows, int numberOfEnemies, int life, int pts, float speedE);
@@ -54,4 +58,8 @@ public:
 	Texture bulletEnnemyTexture2;
 	Texture bulletEnnemyTexture3;
 	Texture bulletEnnemyTexture4;
+
+	SoundBuffer sbExplosion;
+	Sound explode;
+	
 };

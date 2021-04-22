@@ -79,7 +79,7 @@ void BulletManager::BulletPlayerSpawning(float& trajectoire) {
 	Bullet bullet;
 
 	bullet.bulletP.setScale(0.4f, 0.4f);
-	bullet.bulletP.setOrigin(0.2f, 0.2f);
+	bullet.bulletP.setOrigin((float)bulletTexture.getSize().x/2.f, 0);
 	bullet.bulletP.setTexture(bulletTexture);
 	bullet.traj = trajectoire;
 	bullet.bulletP.setPosition(game->player.spaceShip.getPosition().x, game->player.spaceShip.getPosition().y); 

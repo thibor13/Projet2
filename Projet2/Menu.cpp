@@ -17,6 +17,9 @@ Menu::Menu() {
 	menu[1].setFillColor(Color::Yellow);
 
 	selectedIndex = 0;
+
+	if (!sbMenuButton.loadFromFile("res/audio/button.wav"))
+		printf("erreur: no sbbutton");
 }
 
 Menu::~Menu() {
@@ -51,7 +54,9 @@ void Menu::MenuDraw(RenderWindow& window) {
 void Menu::MoveUp() {
 
 	if (selectedIndex - 1 >= 0) {
-
+		menuButton.setBuffer(sbMenuButton);
+		menuButton.setVolume(1000);
+		menuButton.play();
 		menu[selectedIndex].setFillColor(Color::Yellow);
 		selectedIndex--;
 		menu[selectedIndex].setFillColor(Color::Red);
@@ -60,7 +65,9 @@ void Menu::MoveUp() {
 void Menu::MoveDown() {
 
 	if (selectedIndex + 1 < MAX_NUMBER_OF_ITEMS) {
-
+		menuButton.setBuffer(sbMenuButton);
+		menuButton.setVolume(80);
+		menuButton.play();
 		menu[selectedIndex].setFillColor(Color::Yellow);
 		selectedIndex++;
 		menu[selectedIndex].setFillColor(Color::Red);
