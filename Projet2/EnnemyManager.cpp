@@ -24,22 +24,22 @@ void EnnemyManager::chooseTimer(int x, int y) {
 void EnnemyManager::UpdateEnnemy(float dt) {
 
 	if (vague == 0 && hasSpawned == false) {
-		SpawnEnnemy(ennemyTex1, 4, 14, 2, 10, 12.f);
+		SpawnEnnemy(ennemyTex1, 4, 14, 2, 10, 14.f);
 		vague = 1;
 		hasSpawned = true;
 	}
 	else if (ennemies.size() == 0 && vague == 1 && hasSpawned == false) {
-		SpawnEnnemy(ennemyTex2, 3, 14, 3, 20, 14.f);
+		SpawnEnnemy(ennemyTex2, 5, 12, 3, 20, 16.f);
 		vague = 2;
 		hasSpawned = true;
 	}
 	else if (ennemies.size() == 0 && vague == 2 && hasSpawned == false) {
-		SpawnEnnemy(ennemyTex3, 3, 14, 3, 30, 16.f);
+		SpawnEnnemy(ennemyTex3, 4, 14, 3, 30, 18.f);
 		vague = 3;
 		hasSpawned = true;
 	}
 	else if (ennemies.size() == 0 && vague == 3 && hasSpawned == false) {
-		SpawnEnnemy(ennemyTex4, 4, 10, 3, 40, 20.f);
+		SpawnEnnemy(ennemyTex4, 5, 10, 3, 40, 20.f);
 		vague = 4;
 		hasSpawned = true;
 	}
@@ -86,20 +86,27 @@ void EnnemyManager::UpdateEnnemy(float dt) {
 			float trajectoire = 20.f;
 			Vector2f enemiesPos = ennemies[rand() % (ennemies.size())].ennemy.getPosition();
 			if (vague == 1) {
-				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture1, 12.f);
+				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture1, 14.f);
+				chooseTimer(1.f, 2.f);
+				fireTime.restart();
 			}
 			else if (vague == 2) {
-				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture2, 14.f);
+				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture2, 16.f);
+				chooseTimer(1.f, 1.5f);
+				fireTime.restart();
 			}
 			else if (vague == 3) {
-				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture3, 16.f);
+				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture3, 20.f);
+				chooseTimer(1.f, 1.25f);
+				fireTime.restart();
 			}
 			else if (vague == 4) {
-				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture4, 18.f);
+				bulletMana->BulletEnnemySpawning(trajectoire, dt, enemiesPos, bulletEnnemyTexture4, 24.f);
+				chooseTimer(0.5f, 1.f);
+				fireTime.restart();
 			}
 				
-			chooseTimer(1.f, 2.f);
-			fireTime.restart();
+			
 		}
 	}
 	else if (ennemies.size() == 0) {

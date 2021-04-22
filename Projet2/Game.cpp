@@ -28,7 +28,7 @@ void Game::processEvent(sf::Event& event, RenderWindow& window) {
 			laserP.play();
 			float trajectoire = -20;
 			bulletManager.BulletPlayerSpawning(trajectoire);
-			cout << player.spaceShip.getPosition().x << endl;
+			//cout << player.spaceShip.getPosition().x << endl;
 			break;
 		}
 	break;

@@ -12,7 +12,7 @@ public:
 	
 	AudioManager() {
 
-		if (menuMusic.openFromFile("res/audio/gameMusic.wav"))
+		if (!menuMusic.openFromFile("res/audio/gameMusic.wav"))
 			printf("erreur: nozic");
 		menuMusic.setVolume(40);
 		menuMusic.play();
